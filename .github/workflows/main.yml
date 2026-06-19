@@ -1,0 +1,17 @@
+name: DevOps Pipeline
+on :
+push :
+branches : [" main " ]
+jobs :
+build :
+works-on : windows-latest
+steps :
+-name : Checkout code
+uses : actions/checkout@v4
+
+-name : Setuo Python
+uses : actions/setup-python@v5
+with :
+python-version : '3.12'
+-name : Run Python file
+run : python app.py
